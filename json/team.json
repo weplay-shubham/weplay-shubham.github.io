@@ -1,0 +1,83 @@
+[
+    {
+      "teamName": "Chennai Super Kings",
+      "logo": "CSK",
+      "captain": "MS Dhoni",
+      "totalTournaments": 15,
+      "winTournaments": 5,
+      "lossTournaments": 10
+    },
+    {
+      "teamName": "Mumbai Indians",
+      "logo": "MI",
+      "captain": "Hardik Pandya",
+      "totalTournaments": 15,
+      "winTournaments": 5,
+      "lossTournaments": 10
+    },
+    {
+      "teamName": "Royal Challengers Bangalore",
+      "logo": "RCB",
+      "captain": "Faf du Plessis",
+      "totalTournaments": 15,
+      "winTournaments": 0,
+      "lossTournaments": 15
+    },
+    {
+      "teamName": "Kolkata Knight Riders",
+      "logo": "KKR",
+      "captain": "Shreyas Iyer",
+      "totalTournaments": 15,
+      "winTournaments": 2,
+      "lossTournaments": 13
+    },
+    {
+      "teamName": "Delhi Capitals",
+      "logo": "DC",
+      "captain": "Rishabh Pant",
+      "totalTournaments": 15,
+      "winTournaments": 0,
+      "lossTournaments": 15
+    },
+    {
+      "teamName": "Punjab Kings",
+      "logo": "PBKS",
+      "captain": "Shikhar Dhawan",
+      "totalTournaments": 15,
+      "winTournaments": 0,
+      "lossTournaments": 15
+    },
+    {
+      "teamName": "Rajasthan Royals",
+      "logo": "RR",
+      "captain": "Sanju Samson",
+      "totalTournaments": 15,
+      "winTournaments": 1,
+      "lossTournaments": 14
+    },
+    {
+      "teamName": "Sunrisers Hyderabad",
+      "logo": "SRH",
+      "captain": "Pat Cummins",
+      "totalTournaments": 15,
+      "winTournaments": 1,
+      "lossTournaments": 14
+    },
+    {
+      "teamName": "Lucknow Super Giants",
+      "logo": "LSG",
+      "captain": "KL Rahul",
+      "totalTournaments": 3,
+      "winTournaments": 0,
+      "lossTournaments": 3
+    },
+    {
+      "teamName": "Gujarat Titans",
+      "logo": "GT",
+      "captain": "Shubman Gill",
+      "totalTournaments": 2,
+      "winTournaments": 1,
+      "lossTournaments": 1
+    }
+  ]
+  

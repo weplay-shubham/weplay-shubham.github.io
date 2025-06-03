@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- ✅ Navbar (same as event.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="/">Events</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Buy me a Red Packet</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Contact Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Meet Our Team</h2>
+    <div class="row" id="contactCards"></div>
+  </section>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ JS to Load person.json and Create Cards -->
+  <script>
+    fetch('json/contact.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('contactCards');
+
+        data.forEach((person, index) => {
+          const col = document.createElement('div');
+          col.className = "col-md-4 mb-4";
+
+          const card = document.createElement('div');
+          card.className = "card d-flex flex-row align-items-center p-3 shadow-sm";
+          card.style.minHeight = "100px";
+
+          card.innerHTML = `
+            <img src="${person.photo}" alt="${person.name}" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+            <div>
+              <h6 class="fw-bold mb-1">${person.name}</h6>
+              <p class="text-muted mb-0">ID: ${person.id}</p>
+            </div>
+          `;
+
+          col.appendChild(card);
+          container.appendChild(col);
+        });
+      });
+  </script>
+</body>
+</html>

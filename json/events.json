@@ -1,0 +1,70 @@
+{
+  "event": [
+    {
+      "event_id": 1,
+      "event_name": "Cricket - Season 1",
+      "event_poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgiyBYIikUDqBzgyTZLGmzHM4SxJMEH78Q3w&s",
+      "event_rule_poster": "https://www.mbatuts.com/wp-content/uploads/2019/11/Event-Planning-Business-in-plan-1024x640.jpg",
+      "person": {
+        "organizer": { "healer": "00000000" },
+        "sponsors": {
+          "healer": "00000000"
+        },
+        "hosts": {
+          "host_1": "1111111"
+        },
+        "management": { "shubham": "12345678", "contact2": "23456789" }
+      },
+      "description": "Join us for an evening of soulful performances and vibrant melodies. Enjoy local bands and food trucks!",
+      "event_date": "4th June 2025",
+      "event time": "04:00 PM",
+      "event room": "I000000",
+      "participation_requirement": "Post the moment and get 25 likes",
+      "total_seats": 120,
+      "wild_card_entry": 10,
+      "event_prize": {
+        "1st rank": "10000 INR",
+        "2nd rank": "7500 INR",
+        "3rd rank": "5000 INR",
+        "All participants": "Surprise Gift"
+      },
+      "links": {
+        "registration_link": "",
+        "result_link": "/team.html"
+      }
+    },
+    {
+      "event_id": 2,
+      "event_name": "Red Light Green Light - Season 1",
+      "event_poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgiyBYIikUDqBzgyTZLGmzHM4SxJMEH78Q3w&s",
+      "event_rule_poster": "https://www.mbatuts.com/wp-content/uploads/2019/11/Event-Planning-Business-in-plan-1024x640.jpg",
+      "person": {
+        "organizer": { "shubham": "00000000" },
+        "sponsors": {
+          "Jadugar": "00000000"
+        },
+        "hosts": {
+          "host_1": "1111111"
+        },
+        "management": { "Vidhi": "12345678", "Sharma": "23456789" }
+      },
+      "description": "Join us for an evening of soulful performances and vibrant melodies. Enjoy local bands and food trucks!",
+      "event_date": "4th June 2025",
+      "event time": "04:00 PM",
+      "event room": "I000000",
+      "participation_requirement": "Post the moment and get 25 likes",
+      "total_seats": 120,
+      "wild_card_entry": 10,
+      "event_prize": {
+        "1st rank": "10000 INR",
+        "2nd rank": "7500 INR",
+        "3rd rank": "5000 INR",
+        "All participants": "Surprise Gift"
+      },
+      "links": {
+        "registration_link": "",
+        "result_link": ""
+      }
+    }
+  ]
+}

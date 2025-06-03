@@ -1,0 +1,33 @@
+[
+    {
+      "id": "001",
+      "name": "Alice Johnson",
+      "photo": "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    {
+      "id": "002",
+      "name": "Bob Smith",
+      "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    {
+      "id": "003",
+      "name": "Carol Davis",
+      "photo": "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    {
+      "id": "004",
+      "name": "Daniel Lee",
+      "photo": "https://randomuser.me/api/portraits/men/4.jpg"
+    },
+    {
+      "id": "005",
+      "name": "Eva Brown",
+      "photo": "https://randomuser.me/api/portraits/women/5.jpg"
+    },
+    {
+      "id": "006",
+      "name": "Frank Wilson",
+      "photo": "https://randomuser.me/api/portraits/men/6.jpg"
+    }
+  ]
+  

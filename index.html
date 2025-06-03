@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Event Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: #f8f9fa;
+      }
+      .navbar {
+        margin-bottom: 2rem;
+      }
+      .event-card {
+        max-width: 600px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+        border-radius: 12px;
+        background: white;
+        overflow: hidden;
+      }
+      .event-poster {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 1.5rem;
+      }
+      .event-title {
+        font-weight: 700;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+      }
+      .event-description {
+        color: #444;
+        margin-bottom: 1rem;
+      }
+      .info-inline {
+        display: flex;
+        gap: 1rem;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+      .info-inline .bi {
+        margin-right: 0.3rem;
+        color: #0d6efd;
+      }
+      .sponsor-list span {
+        display: inline-block;
+        background-color: #e0f0ff;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        margin-right: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #007bff;
+      }
+      .btn-more {
+        width: 100%;
+        margin-top: 1rem;
+      }
+      /* Modal styling */
+      .modal-header h5 {
+        font-weight: 700;
+      }
+      .modal-body img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+      }
+      .modal-section {
+        margin-bottom: 1rem;
+      }
+      .modal-section strong {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      .prize-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      .prize-list li {
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+        color: #198754;
+        display: flex;
+        align-items: center;
+      }
+      .prize-list li .bi-award {
+        margin-right: 8px;
+        color: #ffc107;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">Events</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Buy me a Red Packet</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="event-container" class="container"></div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="eventModal"
+      tabindex="-1"
+      aria-labelledby="eventModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img id="modalPoster" src="" alt="Event Poster" />
+            <img id="modalRulePoster" src="" alt="Event Rule Poster" />
+            <div class="modal-section">
+              <strong>Description:</strong>
+              <p id="modalDescription"></p>
+            </div>
+            <div id="modalOrganizer" class="modal-section">
+              <strong>Organized By:</strong>
+              <ul id="organizerList"></ul>
+            </div>
+            <div id="modalSponsors" class="modal-section">
+              <strong>Sponsors:</strong>
+              <ul id="sponsorList"></ul>
+            </div>
+            <div id="modalHosts" class="modal-section">
+              <strong>Hosts:</strong>
+              <ul id="hostList"></ul>
+            </div>
+            <div id="modalManagement" class="modal-section">
+              <strong>Management:</strong>
+              <ul id="managementList"></ul>
+            </div>
+            <!-- <div id="modalContact" class="modal-section">
+              <strong>Contact:</strong>
+              <ul id="contactList"></ul>
+            </div> -->
+            <div class="modal-section">
+              <strong>Date & Time:</strong>
+              <p id="modalDateTime"></p>
+            </div>
+            <div class="modal-section">
+              <strong>Event Room:</strong>
+              <p id="modalRoom"></p>
+            </div>
+            <div class="modal-section">
+              <strong>Prize:</strong>
+              <ul class="prize-list" id="modalPrizeList"></ul>
+            </div>
+            <div class="modal-section">
+              <strong>Total Seats:</strong>
+              <p id="modalSeats"></p>
+            </div>
+            <div class="modal-section">
+              <strong>Wild Card Entry:</strong>
+              <p id="modalWildCard"></p>
+            </div>
+            <div class="modal-section">
+              <strong>Participation Requirement:</strong>
+              <p id="modalRequirement"></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a id="downloadPosterBtn" href="#" download class="btn btn-primary">
+              <i class="bi bi-download"></i> Download Poster
+            </a>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Helper: fill person list (name and id)
+      function fillPersonList(containerId, personObj) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+        if (!personObj || Object.keys(personObj).length === 0) {
+          // Hide parent container if no person info
+          container.parentElement.classList.add("hidden");
+          return;
+        }
+        container.parentElement.classList.remove("hidden");
+        for (const [name, id] of Object.entries(personObj)) {
+          const li = document.createElement("li");
+          li.textContent = `${name} (${id})`;
+          container.appendChild(li);
+        }
+      }
+
+      function createSponsorSpans(sponsors) {
+        if (!sponsors) return "";
+        let html = "";
+        for (const [name, id] of Object.entries(sponsors)) {
+          html += `<span>Sponsored By - ${name} (${id})</span>`;
+        }
+        return html;
+      }
+
+      async function loadEvents() {
+        try {
+          const res = await fetch("json/events.json");
+          if (!res.ok) throw new Error("Failed to load event.json");
+          const data = await res.json();
+
+          const container = document.getElementById("event-container");
+          container.innerHTML = ""; // Clear previous content
+
+          let row;
+          data.event.forEach((event, index) => {
+            // Create a new row for every two cards
+            if (index % 2 === 0) {
+              row = document.createElement("div");
+              row.className = "row";
+              container.appendChild(row);
+            }
+
+            const col = document.createElement("div");
+            col.className = "col-md-6 mb-4"; // Each card takes half width on medium and larger screens
+
+            const card = document.createElement("div");
+            card.className = "card event-card h-100";
+            card.innerHTML = `
+                <img src="${event.event_poster}" alt="Event Poster" class="event-poster" />
+                <div class="card-body">
+                <h2 class="event-title">${event.event_name}</h2>
+                <p class="event-description">${event.description}</p>
+                <div class="sponsor-list mb-3">${createSponsorSpans(
+                    event.person.sponsors
+                )}</div>
+                <div class="info-inline">
+                    <div><i class="bi bi-calendar-event"></i>${event.event_date}</div>
+                    <div><i class="bi bi-clock"></i>${event["event time"]}</div>
+                </div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-primary btn-more" id="event-${index}">More Details</button>
+                        <a href="${event.links?.registration_link || '#'}" class="btn btn-success btn-more" target="_blank">Register</a>
+                        <a href="${event.links?.result_link || '#'}" class="btn btn-warning btn-more" target="_blank">View Result</a>
+
+                    </div>
+                </div>
+            `;
+            col.appendChild(card);
+            row.appendChild(col);
+
+            // Modal button logic remains the same
+            document
+              .getElementById(`event-${index}`)
+              .addEventListener("click", () => {
+                const modal = new bootstrap.Modal(
+                  document.getElementById("eventModal")
+                );
+                document.getElementById("eventModalLabel").textContent =
+                  event.event_name;
+                document.getElementById("modalPoster").src = event.event_poster;
+                document.getElementById("modalRulePoster").src =
+                  event.event_rule_poster || "";
+                document.getElementById("modalRulePoster").style.display =
+                  event.event_rule_poster ? "block" : "none";
+                document.getElementById("modalDescription").textContent =
+                  event.description;
+
+                fillPersonList("organizerList", event.person.organizer);
+                fillPersonList("sponsorList", event.person.sponsors);
+                fillPersonList("hostList", event.person.hosts);
+                fillPersonList("managementList", event.person.management);
+
+                document.getElementById(
+                  "modalDateTime"
+                ).textContent = `${event.event_date} ${event["event time"]}`;
+                document.getElementById("modalRoom").textContent =
+                  event["event room"];
+                document.getElementById("modalSeats").textContent =
+                  event.total_seats;
+                document.getElementById("modalWildCard").textContent =
+                  event.wild_card_entry;
+                document.getElementById("modalRequirement").textContent =
+                  event.participation_requirement;
+
+                const prizeList = document.getElementById("modalPrizeList");
+                prizeList.innerHTML = "";
+                for (const [rank, prize] of Object.entries(event.event_prize)) {
+                  const li = document.createElement("li");
+                  li.innerHTML = `<i class="bi bi-award"></i>${rank}: ${prize}`;
+                  prizeList.appendChild(li);
+                }
+
+                document.getElementById("downloadPosterBtn").href =
+                  event.event_poster;
+
+                modal.show();
+              });
+          });
+        } catch (error) {
+          console.error("Error loading event data:", error);
+          document.getElementById("event-container").textContent =
+            "Failed to load event data.";
+        }
+      }
+
+      // Run on page load
+      window.addEventListener("DOMContentLoaded", loadEvents);
+    </script>
+  </body>
+</html>
